@@ -4,54 +4,51 @@ title: About HILA project and Our Goal
 description: The Vision, Mission and Developing Philosophy
 background: '/img/AxionStringNetwork.jpg'
 ---
-<p> As an user, living in digitalized era, where even hand-holding devices rely on 
-    <a herf="https://en.wikipedia.org/wiki/Heterogeneous_System_Architecture">Heterogeneous System Architecture</a> (HSA), is wonderful and enjoyable in many ways.
-    The computing powers provided both by multiple CPU cores and 
-    <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#hardware-implementation">Streaming Multiprocessors</a> from GPUs pleasure us as users while also give 
-    us many challenges as developers of CFT simulation softwares.   
+<p> As a user it is wonderful and enjoyable to live in a digitalized era, where even hand-held devices rely on 
+    <a herf="https://en.wikipedia.org/wiki/Heterogeneous_System_Architecture">heterogeneous system architecture</a> (HSA).
+    The computing power provided both by multiple CPUs and GPUs benifit us as users while also presenting challenges for us as developers of CFT simulation software.   
 </p>
 
-<p class="font-italic"> Routines, which could release us from struggling on computing technologies with HSA 
-     and then allow us focus on innovating modeling and algorithms, 
-    are always expected and welcomed.   
+<p class="font-italic"> Routines that free us from struggling with computing technologies using HSA 
+     and allow us to focus on innovating models and algorithms are always welcome.   
 </p>
 
-<p class="font-weight-bold">This is what HILA project could offer. </p>
+<p class="font-weight-bold">This is what HILA can offer. </p>
 
 <p>Developed under <a href="https://en.wikipedia.org/wiki/C%2B%2B14">modern C++</a> standards, HILA is a 
-    <a href="https://en.wikipedia.org/wiki/Lattice_field_theory">Lattice Field Theory</a> programming framework, targeted at HPC simulations.
+    <a href="https://en.wikipedia.org/wiki/Lattice_field_theory">lattice field theory</a> programming framework, targeted at HPC simulations.
     Design features of HILA include
 </p>
 
-<p>(1) Comprehensive class templates of commonly used mathematical and physical objects, such as matrix, which
-    generally work as operators of Lie algebra for non-Abelian Lie groups. 
-    A carefully implemented field class template over lattice can accept tensors with arbitrary rank. 
+<p>(1) Comprehensive class templates of commonly used mathematical and physical objects, such as matrices, which
+    generally work as operators of a Lie algebra for non-Abelian Lie groups. 
+    A carefully implemented field class template over the lattice can accept tensors with arbitrary rank. 
     This make writing CFT applications straightforward and intuitive through HILA's APIs. 
 </p>
 
-<p>Behind the scenes hila takes care of MPI layout and communications. 
-    It lays out the lattice fields differently for different computing platforms: 'array of structures' (standard),
+<p>Behind the scenes hila takes care of the MPI layout and communication. 
+    It structures the lattice fields differently for different computing platforms: 'array of structures' (standard),
    'array of structures of vectors' (AVX-type), or 'structure of arrays' (GP-GPU-type).
 </p>
 
 
 <p>(2) Depending on the hardware platform, optimized executables for specific hardware architectures/protocols will be produced. 
-    Details of the implementations of parallelization on different computing architecture are hidden from the HILA's user,   
-    this means same application source codes built upon HILA's APTs could automatically run on platforms with different hardware architectures.
-    This potability is achievable on <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a> parallelization, 
+    Details of the implementations of parallelization on different computing architecture are hidden from HILA's users,   
+    meaning that applications built with HILA's APIs can automatically run on platforms with different hardware architectures.
+    This portability is achieved for <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a> parallelization, 
     <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">GP-GPU</a> parallelization 
-    as well as <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX vectorization</a> vectorization.
+    as well as <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX vectorization</a>.
 </p>
 
-<p> The key tool for this level of potability is HILA preprocessor (hilapp).
+<p> The key tool for this level of potability is the HILA preprocessor (hilapp).
     It is a C++ <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">source-to-source transcompiler</a> 
     utilizing the 
     <a href="https://clang.llvm.org/docs/LibTooling.html">libtooling</a> library of the
     <a href="https://clang.llvm.org">Clang</a> compiler.
-    It converts HILA application C++ to platform-specific C++ code, which is passed to appropriate compilers for the platforms.
+    It converts HILA application C++ to platform-specific C++ code, which is passed to the appropriate platform specific compiler.
     This process requires 
     <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST) analysis, which is supported by libtooling.
-    There are few simple and helpful tutorials demonstrate how this work 
+    There are few simple and helpful tutorials demonstrate how this works 
 </p>
 <div class="list-group">
     <a href="https://releases.llvm.org/8.0.0/tools/clang/docs/LibASTMatchersTutorial.html" class="list-group-item list-group-item-action list-group-item-success">
