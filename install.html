@@ -6,25 +6,25 @@ background: '/img/AxionStringNetwork.jpg'
 ---
 
 <p class="lead"> 
-  Compilation of CFT simulation codes developed upon HILA logically requires two steps
+  Compilation of CFT simulation codes developed on HILA requires two steps
 </p>
 <ul class="list-unstyled">
       <ul>
-        <li>Compiling S2S transcompiler hilapp and install it onto desired path.</li>
-        <li>Compiling simulation codes with necessary environment variables, which will invoke hardware architecture supports from HILA.</li>
+        <li>Compiling source-to-source transcompiler hilapp and installing it to the desired path.</li>
+        <li>Compiling simulation codes with necessary environment variables, which will enable hardware architecture support on HILA.</li>
       </ul>
 </ul>
 
 <p class="lead">
  HILA is developed on Debian/Ubuntu branch of 
- <a href="https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy">GNU/Linux</a> operating system.
- It has been proven many times that HILA's utilities also works well on 
+ <a href="https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy">GNU/Linux</a> operating systems.
+ Additionally, it has been shown that HILA's utilities work well on 
  <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9"> Red Hat Enterprise Linux</a>
  as well as
  <a href="https://documentation.suse.com/en-us/sles/15-SP6/"> SUSE Linux Enterprise</a>.
- After necessary configurations, simulation codes of HILA also has been compiled on 
- <a href="https://docs.freebsd.org/en/">FreeBSD</a> system, which is significantly different from Linux family of operating system 
- in the aspects of system components. On all systems, download HILA's source tree is done by git clone
+ After necessary configurations, HILA has also been compiled on 
+ <a href="https://docs.freebsd.org/en/">FreeBSD</a> systems, which is significantly different from the Linux family of operating systems, 
+ particularly the system components. On all systems, downloading HILA's source tree is done by git clone
 </p>
 
 <ul class="list-group">
@@ -32,22 +32,24 @@ background: '/img/AxionStringNetwork.jpg'
 </ul>
 
 <p class="lead">
-    Users and developers using HILA's APIs are welcomed to send their patches of HILA on their own systems back to HILA's repository, see more on 
+    Users and developers using HILA's APIs are welcome to submit their own patches to the 
+  <a href="https://github.com/CFT-HY/HILA">HILA github repository</a>. 
+  See more on 
     <a href="{{ "/community" | relative_url }}">community</a> about contributions and license.
    </p>
 
 <p class="lead">
-  HILA's utilities, including hialpp, are configured and built through 
+  HILA's utilities, including hlapp, are configured and built using
   <a href="https://www.gnu.org/software/make/">GNU make</a>.
-  On Debian/Ubuntu system, all necessary dependencies for building HILA can be easily installed through 
+  On Debian/Ubuntu systems, all necessary dependencies for building HILA can be easily installed through 
   <a href="https://en.wikipedia.org/wiki/APT_(software)">APT</a>, see details from
   <a href="{{ site.docs_url | append: '/dependencies_and_installation.html' }}">documentation</a>.
 </p>
 
-<h4 class="fw-normal border-bottom pb-3 mb-5">Dependencies On Supercomputer</h4>
+<h4 class="fw-normal border-bottom pb-3 mb-5">Dependencies On Supercomputers</h4>
 <p class="lead">
-  In specific situation, compiling hilapp may be not easy or totally impossible on certain supercomputer platforms. 
-  This problem is caused by lack of module support LLVM, which is necessary as described in 
+  In specific situation, compiling hilapp may be difficult or totally impossible on certain supercomputing platforms. 
+  This problem is caused by lack of module support for LLVM, which is necessary as described in 
   <a href="{{ "/about" | relative_url }}">About</a> page.
 </p>
 
@@ -56,33 +58,34 @@ background: '/img/AxionStringNetwork.jpg'
 </h5>
 
 <p class="lead">
-  (1) Users could compile hilapp and link it statically on their own computer with LLVM, and then copy the static-linked binary of hilapp into supercomputer, see detail from 
+  (1) Users can compile hilapp and link it statically on their own computer with LLVM, and then copy the static-linked binary of hilapp onto the supercomputer, see detail from 
   <a href="{{ site.docs_url | append: '/dependencies_and_installation.html' }}">documentation</a>.   
-  This solution only works when users' computer has same CPU architecture as the supercomputer's. 
-  In most case, 
-  <a href="https://en.wikipedia.org/wiki/X86-64">x86_64</a> is the architecture under concerning.
+  This solution only works when the user's computer has the same CPU architecture as the supercomputer. 
+  In most cases the architecture is
+  <a href="https://en.wikipedia.org/wiki/X86-64">x86_64</a>.
 </p>
 
 <p class="lead">
-  (2) Many HPC systems has 
-  <a href="https://spack.readthedocs.io/en/latest/">Spack</a> installed, and in common case, multiple versions of Spack are installed as modules. 
-  As a source trees management and building tool dedicated on supercomputer which has 
-  <a href="https://modules.sourceforge.net/">Environment Modules</a> and 
+  (2) Many HPC systems have 
+  <a href="https://spack.readthedocs.io/en/latest/">Spack</a> installed, and commonly multiple versions of Spack are installed as modules. 
+  As a source tree management and building tool dedicated for supercomputing platforms which have 
+  <a href="https://modules.sourceforge.net/">Environment Modules</a> and the
   <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Slurm Workload Manager</a> available,
-  spack is recommended tool to build third-party dependencies with optimized configurations on supercomputer, see 
+  spack is the recommended tool for building third-party dependencies with optimized configurations on supercomputers. See 
   <a href="{{ site.docs_url | append: '/dependencies_and_installation.html' }}">documentation</a> for detailed instruction.
 </p>
 
 <p class="lead">
-  Other supercomputer accessible alternative of Spack is 
+  Another supercomputer accessible alternative to Spack is 
   <a href="https://docs.easybuild.io/">EasyBuild</a>. 
 </p>
 
 <p class="lead">
-  (3) <a href="https://en.wikipedia.org/wiki/Containerization_(computing)">Containerization</a> is also an effective way to by pass dependencies problem of LLVM.
+  (3) <a href="https://en.wikipedia.org/wiki/Containerization_(computing)">Containerization</a> is also an effective way to bypass the dependency problem of LLVM.
     Using <a href="hhttps://en.wikipedia.org/wiki/OS-level_virtualization">OS-level virtualization</a> provided by 
-    <a href="https://en.wikipedia.org/wiki/Singularity_(software)">Singularity</a>, hilapp can run just like it is built locally, see details in 
-    <a href="{{ site.docs_url | append: '/dependencies_and_installation.html' }}">documentation</a> about how to deploy Singularity or Docker.
+    <a href="https://en.wikipedia.org/wiki/Singularity_(software)">Singularity</a>, hilapp can run just like it were built locally.  See details in 
+    <a href="{{ site.docs_url | append: '/dependencies_and_installation.html' }}">documentation</a> about how to deploy Singularity or Docker. 
+  Prebuilt x86_64 singularity containers of hilapp are available on the <a href="https://github.com/CFT-HY/HILA/releases/tag/Nightly">release page</a> of HILA's github.
 </p>
 
 <!--
